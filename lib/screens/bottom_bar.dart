@@ -9,17 +9,35 @@ class BottomBar extends StatefulWidget {
 }
 
 class _BottomBarState extends State<BottomBar> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  static final List<Widget> _widgetOptions = [
+    const Text("Home"),
+    const Text("Search"),
+    const Text("Tickets"),
+    const Text("Profile"),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('My Tickers'),
       ),
+      body: Center(child: _widgetOptions[_selectedIndex]),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
         elevation: 10,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         selectedItemColor: Colors.blueGrey,
+        type: BottomNavigationBarType.fixed,
         unselectedItemColor: Color(0xff526480),
         items: const [
           BottomNavigationBarItem(
