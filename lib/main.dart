@@ -1,8 +1,9 @@
 import 'package:booktickets/screens/bottom_bar.dart';
+import 'package:booktickets/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -11,7 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: BottomBar(),
+      title: 'Tickets',
+      theme: ThemeData(primaryColor: primary),
+      home: const BottomBar(),
     );
   }
 }

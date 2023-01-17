@@ -1,3 +1,4 @@
+import 'package:booktickets/screens/home_screen.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class _BottomBarState extends State<BottomBar> {
   }
 
   static final List<Widget> _widgetOptions = [
-    const Text("Home"),
+    const HomeScreen(),
     const Text("Search"),
     const Text("Tickets"),
     const Text("Profile"),
@@ -26,9 +27,6 @@ class _BottomBarState extends State<BottomBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('My Tickers'),
-      ),
       body: Center(child: _widgetOptions[_selectedIndex]),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
@@ -38,7 +36,7 @@ class _BottomBarState extends State<BottomBar> {
         showUnselectedLabels: false,
         selectedItemColor: Colors.blueGrey,
         type: BottomNavigationBarType.fixed,
-        unselectedItemColor: Color(0xff526480),
+        unselectedItemColor: const Color(0xff526480),
         items: const [
           BottomNavigationBarItem(
             icon: Icon(FluentSystemIcons.ic_fluent_home_regular),
